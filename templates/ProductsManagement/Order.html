@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="row">
+   <div class="col-md">
+       <div class="card card-body">
+           <h5>Orders</h5>
+       </div>
+       <div class="card card-body">
+           <table class="table">
+               <tr>
+                   <th>Product</th>
+                   <th>Created date</th>
+                   <th>Update date</th>
+                   <th>Status</th>
+                   <th></th>
+                   <th></th>
+               </tr>
+               {% for o in orders %}
+               <tr>
+<!--                   <td>{{o.user.id}]</td>-->
+                   <td>{{o.products.name}}</td>
+                   <td>{{o.created_date}}</td>
+                   <td>{{o.update_date}}</td>
+                   <td>{{o.status}}</td>
+                   <td><button type="button" class="btn btn-danger">Delete</button></td>
+                   <td><button type="button" class="btn btn-info">Update</button></td>
+               </tr>
+               {% endfor %}
+           </table>
+       </div>
+   </div>
+</div>
+
+<div class="d-grid gap-2 col-2 mx-auto" style="margin: 10px;">
+  <button class="btn btn-primary" type="button">Add Order</button>
+</div>
+
+
+
+{% endblock %}
